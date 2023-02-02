@@ -1,13 +1,15 @@
 import React from "react";
+import Exit from "../../components/Exit";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import showcase from "../../images/showcase.png";
 
 function Home() {
+  const handleClick = () => {};
   return (
     <div className="relative w-[1440px] h-[1024px]  bg-white mx-auto my-0 overflow-y-scroll overflow-x-hidden">
       <Navbar />
-
+      <Exit />
       <div
         className="absolute w-[1320px] h-[400px] left-[60px] top-[160px]"
         style={{

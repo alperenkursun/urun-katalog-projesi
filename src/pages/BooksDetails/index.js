@@ -1,4 +1,5 @@
 import React from "react";
+import Exit from "../../components/Exit";
 import Navbar from "../../components/Navbar";
 import dune from "../../images/dune.png";
 
@@ -6,6 +7,7 @@ function BooksDetails() {
   return (
     <div className="relative w-[1440px] h-[1024px] bg-white mx-auto my-0">
       <Navbar />
+      <Exit />
       <div className="flex flex-row items-center p-0 gap-2.5 absolute w-[1320px] h-[33px] left-[60px] top-[160px]">
         <svg
           width="20"

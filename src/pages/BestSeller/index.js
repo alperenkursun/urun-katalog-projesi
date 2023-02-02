@@ -1,4 +1,5 @@
 import React from "react";
+import Exit from "../../components/Exit";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import dune from "../../images/dune.png";
@@ -7,6 +8,7 @@ function BestSeller() {
   return (
     <div className="relative w-[1440px] h-[1024px] overflow-y-scroll overflow-x-hidden my-0 mx-auto">
       <Navbar />
+      <Exit />
       <div className="flex flex-row items-center p-0 gap-2.5 absolute w-[1320px] h-[33px] left-[60px] top-[160px]">
         <svg
           width="20"
