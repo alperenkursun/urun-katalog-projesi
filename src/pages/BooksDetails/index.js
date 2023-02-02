@@ -2,8 +2,12 @@ import React from "react";
 import Exit from "../../components/Exit";
 import Navbar from "../../components/Navbar";
 import dune from "../../images/dune.png";
+import { editPage, selectBookDetail } from "../../redux/state/stateSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 function BooksDetails() {
+  const bookDetail = useSelector(selectBookDetail);
+  const dispatch = useDispatch();
   return (
     <div className="relative w-[1440px] h-[1024px] bg-white mx-auto my-0">
       <Navbar />
@@ -15,6 +19,10 @@ function BooksDetails() {
           viewBox="0 0 20 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="cursor-pointer"
+          onClick={() => {
+            dispatch(editPage(2));
+          }}
         >
           <path
             d="M12.6042 18.0833L5.58335 11.0833C5.50002 11 5.44113 10.9097 5.40669 10.8125C5.37169 10.7153 5.35419 10.6111 5.35419 10.5C5.35419 10.3889 5.37169 10.2847 5.40669 10.1875C5.44113 10.0903 5.50002 9.99999 5.58335 9.91666L12.6042 2.89582C12.7986 2.70138 13.0417 2.60416 13.3334 2.60416C13.625 2.60416 13.875 2.70832 14.0834 2.91666C14.2917 3.12499 14.3959 3.36805 14.3959 3.64582C14.3959 3.9236 14.2917 4.16666 14.0834 4.37499L7.95835 10.5L14.0834 16.625C14.2778 16.8194 14.375 17.0589 14.375 17.3433C14.375 17.6283 14.2709 17.875 14.0625 18.0833C13.8542 18.2917 13.6111 18.3958 13.3334 18.3958C13.0556 18.3958 12.8125 18.2917 12.6042 18.0833Z"
@@ -30,10 +38,10 @@ function BooksDetails() {
       </div>
       <div className="flex flex-col items-start p-0 gap-2.5 absolute w-[209px] h-[109px] left-[560px] top-[224px]">
         <div className="w-[101px] h-[55px] font-manrope not-italic font-semibold text-[40px] leading-[55px] text-black flex-none order-none flex-grow-0">
-          Dune
+          {bookDetail.name}
         </div>
         <div className="w-[209px] h-[44px] font-manrope not-italic font-semibold text-[32px] leading-[44px] text-black opacity-60 flex-none order-1 flex-grow-0">
-          Frank Herbert
+          {bookDetail.author}
         </div>
       </div>
       <div className="flex flex-col items-start p-0 gap-2.5 absolute w-[820px] h-[343px] left-[560px] top-[393px]">
@@ -41,24 +49,12 @@ function BooksDetails() {
           Summary
         </div>
         <div className="w-[820px] h-[300px] font-manrope not-italic font-normal font-xl leading-[30px] text-justify text-[#090937] opacity-60 flex-none order-1 flex-grow-0">
-          Dune is set in the distant future amidst a feudal interstellar society
-          in which various noble houses control planetary fiefs. It tells the
-          story of young Paul Atreides, whose family accepts the stewardship of
-          the planet Arrakis. While the planet is an inhospitable and sparsely
-          populated desert wasteland, it is the only source of melange, or
-          "spice", a drug that extends life and enhances mental abilities.
-          Melange is also necessary for space navigation, which requires a kind
-          of multidimensional awareness and foresight that only the drug
-          provides. As melange can only be produced on Arrakis, control of the
-          planet is a coveted and dangerous undertaking. The story explores the
-          multilayered interactions of politics, religion, ecology, technology,
-          and human emotion, as the factions of the empire confront each other
-          in a struggle for the control of Arrakis and its spice.
+          {bookDetail.description}
         </div>
       </div>
       <div className="flex flex-row justify-between items-center px-5 py-2.5 gap-2.5 absolute w-[400px] h-[60px] left-[980px] top-[924px] bg-[#EF6B4A] rounded">
         <div className="w-[68px] h-[27px] font-manrope not-italic font-bold text-xl leaidng-[27px] text-white flex-none order-none flex-grow-0">
-          87,75 $
+          {bookDetail.price} $
         </div>
         <div className="w-[82px] h-[27px] font-manrope not-italic font-semibold text-xl leading-[27px] text-white flex-none order-1 flex-grow-0">
           Buy Now

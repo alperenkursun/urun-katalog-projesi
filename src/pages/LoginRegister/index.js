@@ -50,8 +50,6 @@ function LoginRegister() {
       object.email = emailValue;
       object.password = passwordValue;
 
-      console.log(object);
-
       axios
         .post("https://assign-api.piton.com.tr/api/rest/login", object)
         .then((res) => {
@@ -82,8 +80,6 @@ function LoginRegister() {
           dispatch(editPage(2));
         })
         .catch((err) => alert(err));
-
-      console.log(object);
     }
   };
 
